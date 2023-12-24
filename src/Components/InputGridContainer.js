@@ -69,7 +69,7 @@ const InputGridContainer = (props) => {
     }
   
     try {
-      const response = await axios.post('http://localhost:5000/api/task', newTask);
+      const response = await axios.post('https://breakable-lime-cygnet.cyclic.app/api/task', newTask);
       console.log(response.data); // Log the response from the server
   
       setTasks((prev) => [...prev, newTask]);
