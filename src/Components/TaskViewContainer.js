@@ -41,7 +41,7 @@ const TaskViewContainer = (props) => {
     useEffect(() => {
       const fetchTasks = async () => {
         try {
-          const response = await axios.get('http://localhost:5000/api/task/getAll');
+          const response = await axios.get('https://breakable-lime-cygnet.cyclic.app/api/task/getAll');
           const allTasks = response.data;
           setTasks(allTasks);
     
@@ -126,7 +126,7 @@ const TaskViewContainer = (props) => {
           console.log("del >> ", taskId);
     
           // Call the API to delete the task by taskId
-          await axios.delete('http://localhost:5000/api/task/delete', { data: { taskId } });
+          await axios.delete('https://breakable-lime-cygnet.cyclic.app/api/task/delete', { data: { taskId } });
     
           // Update the local state after successful deletion
           setTasks((prev) => prev.filter((task) => task.taskId !== taskId));
@@ -229,7 +229,7 @@ const TaskViewContainer = (props) => {
     
         console.log('tid >>', tid);
     
-        const response = await axios.put('http://localhost:5000/api/task/updateStatus', { taskId: tid });
+        const response = await axios.put('https://breakable-lime-cygnet.cyclic.app/api/task/updateStatus', { taskId: tid });
         console.log('Response from server:', response.data);
 
         if (taskToMove.type === 'recurring') {
